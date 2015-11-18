@@ -27,6 +27,33 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+
+
+	   <!--  devtools añade automaticamente el autodeploy, solo para entornos de desarrollo -->
+	   <!--  "Developer tools are automatically disabled when running a fully packaged application."  --> 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
+		
+		
+		<!--  Actuator endpoints allow you to monitor and interact with your application.  -->
+		<!--  proporciona una lista de endpoints 
+		http://docs.spring.io/spring-boot/docs/1.3.x-SNAPSHOT/reference/html/production-ready-endpoints.html
+		 -->
+	
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+
+
+	<!-- spring-boot-starter-actuator -->
+	<!-- spring-boot-starter-hateoas -->
+	<!-- spring-boot-starter-test -->
+	
+	
 	</dependencies>
 
 	<!-- Plugin maven para empaquetar los archivos ejecutables jar -->
@@ -38,7 +65,11 @@
 			</plugin>
 		</plugins>
 	</build>
+	
 
+	
 
-
+	
+	
+	
 </project>
