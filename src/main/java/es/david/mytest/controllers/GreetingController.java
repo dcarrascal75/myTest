@@ -2,15 +2,24 @@ package es.david.mytest.controllers;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
 
+import java.net.URI;
+
+import javax.validation.Valid;
+
+import org.springframework.hateoas.Link;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
 
 import es.david.mytest.beans.Greeting;
 
@@ -68,5 +77,29 @@ public class GreetingController {
 
         return new ResponseEntity<Greeting>(greeting, HttpStatus.OK);
     }
+    
+    /*
+     * Ojo con los post!
+     * No puedo emitir una peticion post desde la url del navegador, (esas siemprevan con get),
+     * por eso tengo que usar herramientas tipo "Postman" (una extension de chrome) para poder hacerlo
+     * o swagger. 
+     * 
+     * 
+     */
+    @RequestMapping(value = "/greeting/add" , method=RequestMethod.POST )  
+    @ResponseBody
+    public HttpEntity<Greeting> greetingAdd() {
+
+    	//en realidad no lo persisto de momento
+    	
+        Greeting greeting = new Greeting(String.format(TEMPLATE, "POST!!!"));
+        
+        greeting.add(linkTo(methodOn(GreetingController.class).greeting("POST!!!")).withSelfRel()); 
+        greeting.add(linkTo(methodOn(SubGreetingController.class).subgreeting()).withRel("ListaDeSubGreetings")); 
+
+        return new ResponseEntity<Greeting>(greeting, HttpStatus.CREATED);
+    }
+    
+    
 }
 

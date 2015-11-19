@@ -1,11 +1,8 @@
 package es.david.mytest;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.hateoas.config.EnableHypermediaSupport;
 
 
 // @EnableAutoConfiguration annotation is often placed on your main class, and it implicitly defines a base “search package” for certain items.
@@ -56,29 +53,9 @@ The spring-boot-devtools module also includes support for quick application rest
  */
 
 
+@SpringBootApplication // equivale a @Configuration + @EnableAutoConfiguration + @ComponentScan
+public class Init {
 
-@RestController
-//@Configuration
-//@EnableAutoConfiguration
-@SpringBootApplication // same as @Configuration @EnableAutoConfiguration @ComponentScan
-
-public class Example {
-
-    @RequestMapping("/")
-    String saludar() {
-        return "Hola Spring Boot 1";
-    }
-    
-    @RequestMapping("/manolo")
-    String saludaManolo() {
-        return "Hola Spring Boot 1 manolo";
-    }
-
-    @RequestMapping("/manolo2")
-    String saludaManolo2() {
-        return "Hola Spring Boot 2 manolo2 33 e eee  asdasd esdasdasd";
-    }
-    
     public static void main(String[] args) throws Exception {
     	
     	//Así se ponen propiedades: System.setProperty("nombre", "valor");
@@ -90,6 +67,6 @@ public class Example {
     	 * Did you notice that there wasn’t a single line of XML? No web.xml file either. This web application is 100% pure Java 
     	 */
     			
-        SpringApplication.run(Example.class, args);
+        SpringApplication.run(Init.class, args);
     }
 }
