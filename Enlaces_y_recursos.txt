@@ -1,0 +1,60 @@
+
+
+http://zeroturnaround.com/rebellabs/what-you-can-build-for-free-in-2-hours-with-spring-boot-twitter-and-facebook/
+
+
+http://www.rabbitmq.com/tutorials/tutorial-one-java.html
+
+https://spring.io/guides/gs/serving-mobile-web-content/
+
+https://github.com/spring-projects/spring-android-samples
+
+https://spring.io/guides/gs/rest-hateoas/
+
+
+
+Añadir links a nuestros recursos (mejor dicho, a sus representaciones) es muy sencillo con Spring HATEOAS. 
+La única condición de que debemos cumplir es que el objeto u objetos que devolvamos en la respuesta extiendan de 
+org.springframework.hateoas.ResourceSupport.
+
+el controller entonces retorna objetos .ResourceSupport
+
+
+http://www.adictosaltrabajo.com/tutoriales/spring-hateoas/
+
+
+http://azagorneanu.blogspot.com.es/2013/06/hateoas-using-spring-framework.html
+
+Building links. Spring Hateoas provides a ControllerLinkBuilder that allows to create links by pointing to controller classes:
+
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
+ 
+resource.add(linkTo(AuthorController.class).slash(author.getAuthorId()).slash("books").withRel("books"));
+ 
+//*************  or by pointing directly to a controller method
+resource.add(linkTo(methodOn(AuthorController.class).getAuthorBooks(author.getAuthorId())).withRel("books"));
+
+
+
+Hacer uso de la clase org.springframework.hateoas.mvc.ResourceAssemblerSupport, que básicamente es un conversor 
+de POJOS que usemos en nuestro modelo de datos a objetos del tipo ResourceSupport. 
+
+Ejemplo:
+http://city81.blogspot.se/2013/05/spring-mvc-and-hateoas-constraint.html
+
+
+lo que viene en la url es @pathvariable 
+
+ methodOn(UnController.class)
+
+Exemplo: https://github.com/olivergierke/spring-restbucks
+
+Spring tool suite: 
+https://spring.io/guides/gs/sts/
+
+Guías:
+https://spring.io/guides
+
+
+
