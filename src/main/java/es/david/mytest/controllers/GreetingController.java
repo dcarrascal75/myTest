@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import es.david.mytest.beans.Greeting;
 
@@ -24,6 +25,17 @@ import es.david.mytest.beans.Greeting;
  * 
  * The @ResponseBody annotation on the greeting method will cause Spring MVC to render the returned HttpEntity and its payload, 
  * the Greeting, directly to the response.
+ * 
+ * 
+ * 
+ * 
+ * 
+    @Controller is used to mark classes as Spring MVC Controller.
+    @RestController does nothing more than adding the @Controller and @ResponseBody annotations
+    
+    @RestController =  @Controller + @ResponseBody
+
+ *  Es decir, este mismo controller, se puede mapear con @RestController o con @Controller + @ResponseBody
  * 
  */
 
@@ -48,9 +60,11 @@ public class GreetingController {
         //The LinkBuilder returned will have inspected the controller method’s mapping annotation to build up 
         //exactly the URI the method is mapped to.
         //---------------------------
-        System.out.println("LLamada 1");
+     
         greeting.add(linkTo(methodOn(GreetingController.class).greeting(name)).withSelfRel()); 
         
+        //le añado un link relacionado a una entidad subgreeting, (que en realidad es otro greeting)
+        greeting.add(linkTo(methodOn(SubGreetingController.class).subgreeting()).withRel("ListaDeSubGreetings")); 
 
         return new ResponseEntity<Greeting>(greeting, HttpStatus.OK);
     }
