@@ -72,6 +72,20 @@
 		<!-- spring-boot-starter-test -->
 
 
+
+
+		<dependency>
+			<groupId>com.mangofactory</groupId>
+			<artifactId>swagger-springmvc</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.ajar</groupId>
+			<artifactId>swagger-spring-mvc-ui</artifactId>
+			<version>0.4</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<!-- Plugin maven para empaquetar los archivos ejecutables jar -->
@@ -88,6 +102,9 @@
 	<!--  aqui puedo definir tipo, si jar o war o pom. Con Spring boot puedo ejecutar directamente un jar con su main() -->
    <packaging>jar</packaging>
 	
+
+
+
 
 	
 	

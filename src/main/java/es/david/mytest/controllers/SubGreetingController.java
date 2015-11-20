@@ -22,7 +22,7 @@ En realidad esta clase retorna un objeto Greeting
 public class SubGreetingController {
 
   
-    @RequestMapping(value = "/subgreeting" , method=RequestMethod.GET )   //o  RequestMapping("/greeting") 
+    @RequestMapping(value = "/api/subgreeting" , method=RequestMethod.GET )   //o  RequestMapping("/greeting") 
     public HttpEntity<Greeting> subgreeting() {
 
     	Greeting greeting = new Greeting("SUBHello!");

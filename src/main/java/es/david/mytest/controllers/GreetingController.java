@@ -55,7 +55,7 @@ public class GreetingController {
 
     private static final String TEMPLATE = "Hello, %s!";
 
-    @RequestMapping(value = "/greeting" , method=RequestMethod.GET )   //o  RequestMapping("/greeting") 
+    @RequestMapping(value = "/api/greeting" , method=RequestMethod.GET )   //o  RequestMapping("/greeting") 
     @ResponseBody
     public HttpEntity<Greeting> greeting(@RequestParam(value = "name", required = false, defaultValue = "World") String name) {
 
