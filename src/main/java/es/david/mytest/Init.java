@@ -2,8 +2,10 @@ package es.david.mytest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.hateoas.config.EnableHypermediaSupport;
+import org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
+import com.mangofactory.swagger.plugin.EnableSwagger;
 
 // @EnableAutoConfiguration annotation is often placed on your main class, and it implicitly defines a base “search package” for certain items.
 // For example, if you are writing a JPA application, the package of the @EnableAutoConfiguration annotated class will be used to search for @Entity items.
@@ -52,10 +54,14 @@ The spring-boot-devtools module also includes support for quick application rest
  * And along the way, you use Spring’s support for embedding the Tomcat servlet container as the HTTP runtime, instead of deploying to an external instance.
  */
 
-
+@EnableSwagger
 @SpringBootApplication // equivale a @Configuration + @EnableAutoConfiguration + @ComponentScan
 public class Init {
 
+	
+	private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {"classpath:/META-INF/resources/",
+		"classpath:/resources/", "classpath:/static/", "classpath:/public/"};
+	
     public static void main(String[] args) throws Exception {
     	
     	//Así se ponen propiedades: System.setProperty("nombre", "valor");
@@ -69,4 +75,5 @@ public class Init {
     			
         SpringApplication.run(Init.class, args);
     }
+
 }
