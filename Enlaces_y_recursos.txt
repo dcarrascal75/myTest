@@ -13,8 +13,8 @@ https://spring.io/guides/gs/rest-hateoas/
 
 
 
-Añadir links a nuestros recursos (mejor dicho, a sus representaciones) es muy sencillo con Spring HATEOAS. 
-La única condición de que debemos cumplir es que el objeto u objetos que devolvamos en la respuesta extiendan de 
+Aï¿½adir links a nuestros recursos (mejor dicho, a sus representaciones) es muy sencillo con Spring HATEOAS. 
+La ï¿½nica condiciï¿½n de que debemos cumplir es que el objeto u objetos que devolvamos en la respuesta extiendan de 
 org.springframework.hateoas.ResourceSupport.
 
 el controller entonces retorna objetos .ResourceSupport
@@ -37,7 +37,7 @@ resource.add(linkTo(methodOn(AuthorController.class).getAuthorBooks(author.getAu
 
 
 
-Hacer uso de la clase org.springframework.hateoas.mvc.ResourceAssemblerSupport, que básicamente es un conversor 
+Hacer uso de la clase org.springframework.hateoas.mvc.ResourceAssemblerSupport, que bï¿½sicamente es un conversor 
 de POJOS que usemos en nuestro modelo de datos a objetos del tipo ResourceSupport. 
 
 Ejemplo:
@@ -53,8 +53,11 @@ Exemplo: https://github.com/olivergierke/spring-restbucks
 Spring tool suite: 
 https://spring.io/guides/gs/sts/
 
-Guías:
+Guï¿½as:
 https://spring.io/guides
 
+
+Para SWAGGER:
+https://anotherdayanotherbug.wordpress.com/tag/swagger/
 
 
